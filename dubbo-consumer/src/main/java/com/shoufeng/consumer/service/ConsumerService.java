@@ -1,5 +1,6 @@
 package com.shoufeng.consumer.service;
 
+import com.alibaba.dubbo.config.annotation.Method;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.shoufeng.api.ProviderService;
 import org.springframework.stereotype.Component;
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerService {
 
-    @Reference
+    @Reference(methods = {@Method(name = "providerMethod1", timeout = 3000, retries = 5)}, version = "1.0.0")
     private ProviderService providerService;
 
     public void consumerMethod1(){
