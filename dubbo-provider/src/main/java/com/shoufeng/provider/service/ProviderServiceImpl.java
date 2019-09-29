@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
-@Service(version = "1.0.0")
+@Service(version = "1.0.0", loadbalance = "leastactive")
 @Component
 public class ProviderServiceImpl implements ProviderService {
 
